@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+	<link href="{% static 'style.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+
+{% block content %}
+    <div class="container mt-3 mb-3">
+        <div class="mt-4 mb-4">
+            <h2>かいもの一覧</h2>
+        </div>
+        <div class="mt-4 mb-4">
+            {% for post in tasks %}
+                <p><a href="{% url 'shopTip:detail' post.pk %}" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-body-emphasis">{{ post.title }}</a></p>
+            {% endfor %}
+        </div>
+        <div class="mt-5 mb-5">
+            <form method="post">{% csrf_token %}
+                {% for field in form %}
+                    {{ field }}
+                {% endfor %}
+                <button type="submit">追加</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

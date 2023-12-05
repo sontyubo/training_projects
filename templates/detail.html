@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+<link href="{% static 'style.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+
+{% block content %}
+<div class="container mt-3 mb-3">
+    <div class="container mt-3 mb-3">
+        <h2>タスクの詳細</h2>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">追加日時</th>
+                <th scope="col">品名</th>
+                <th scope="col">メモ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ object.register_date|date:"Y.m.d" }}</th>
+                <td>{{ object.title }}</td>
+                <td>{{ object.memo }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><a class="link-opacity-50-hover" href="{% url 'shopTip:detail_delete' object.pk %}">この品物を削除</a></p>
+</div>
+{% endblock content %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    {% load static %}
+    {% block custom_css %}
+    {% endblock custom_css %}
+
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}" sizes="16x16 24x24 32x32 48x48 64x64">
+    <title>ShopTip</title>
+    <meta name=”description” content="全角80～110文字）以内">
+    <meta name=”keywords” content="">
+</head>
+
+<!-- contents -->
+
+<body class="align-items-center py-4 bg-body-tertiary">
+    {% block header %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'shopTip:index' %}">
+                <img src="{% static 'logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top mx-2">
+                ShopTip
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'shopTip:choice' %}">選択削除</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shopTip:record' %}">削除履歴</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">ログアウト</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock header %}
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
+</body>
+
+<!-- Bootstrap Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+</html>

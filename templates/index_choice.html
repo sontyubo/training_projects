@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+	<link href="{% static 'style.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+
+{% block content %}
+    <div class="container mt-3 mb-3">
+        <div class="mt-4 mb-4">
+            <h2>かいもの一覧</h2>
+        </div>
+        <div class="mt-4 mb-4">
+            <form method="post">{% csrf_token %}
+                <div>
+                    {% for post in tasks %}
+                        <p><input type="checkbox" name="delete" value="{{ post.pk }}"> {{ post.title }}</p>
+                    {% endfor %}
+                </div>
+                <div class="mt-5 mb-5">
+                    <button type="submit">削除</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

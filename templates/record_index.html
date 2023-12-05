@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_css %}
+	<link href="{% static 'style.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+
+{% block content %}
+    <div class="container mt-3 mb-3">
+        <div class="mt-4 mb-4">
+            <h2>削除履歴</h2>
+        </div>
+        <div class="mt-4 mb-4">
+            <form method="post">{% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">チェック</th>
+                            <th scope="col">削除日時</th>
+                            <th scope="col">品名</th>
+                            <th scope="col">メモ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in tasks reversed %}
+                        <tr>
+                            <th scope="row"><input type="checkbox" name="delete" value="{{ post.pk }}"></th>
+                            <td>{{ post.register_date|date:"Y.m.d" }}</td>
+                            <td>{{ post.title }}</td>
+                            <td>{{ post.memo }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="mt-5 mb-5">
+                    <button type="submit">履歴削除</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
