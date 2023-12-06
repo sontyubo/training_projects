@@ -81,7 +81,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {}
+DATABASES = {
+
+}
 
 '''
     'default': {
@@ -125,8 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'BASE_DIR / staticfiles'
-STATICFILES_DIR = [str(BASE_DIR / 'accounts / static') , str('shopTip / static')]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [str(BASE_DIR / 'accounts' / 'static') , str(BASE_DIR / 'shopTip' / 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
