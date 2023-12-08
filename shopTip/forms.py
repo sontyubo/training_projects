@@ -14,3 +14,4 @@ class RecordedForm(forms.ModelForm):
     class Meta:
         model = RecordedTask
         fields = ('title', 'memo', )
+        
